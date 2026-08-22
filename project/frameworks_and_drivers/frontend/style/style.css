@@ -1,0 +1,215 @@
+:root {
+    --background: #f4f6f8;
+    --surface: #ffffff;
+    --text: #172033;
+    --muted: #667085;
+    --border: #d9dee7;
+    --border-hover: #aeb8c8;
+    --button: #163a63;
+    --button-hover: #0f2b4a;
+    --input-background: #f9fafb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 42px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* Header */
+
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 90% 90%;
+    background-image: url('../imgs/math.png');
+    margin: auto;
+}
+
+.header h1 {
+    font-size: 27px;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+    margin-bottom: 9px;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Form */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 95%;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--input-background);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #a0a0a0;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+    border-color: var(--border-hover);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    background: white;
+    border-color: #555;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.07);
+}
+
+/* Select */
+
+.form-group select {
+    cursor: pointer;
+}
+
+/* Button */
+
+button {
+    width: 100%;
+    height: 48px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 9px;
+    background: var(--button);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+button:hover {
+    background: var(--button-hover);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+/* Login */
+
+.text {
+    margin-top: 25px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.text a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+
+@media (max-width: 520px) {
+
+    .page {
+        padding: 20px 14px;
+    }
+
+    .card {
+        padding: 32px 24px;
+        border-radius: 15px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 90%;
+        height: 46px;
+        padding: 0 14px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        background: var(--input-background);
+        color: var(--text);
+        font-family: inherit;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+}
+
+@media (max-width: 360px) {
+
+    .card {
+        padding: 28px 18px;
+    }
+}

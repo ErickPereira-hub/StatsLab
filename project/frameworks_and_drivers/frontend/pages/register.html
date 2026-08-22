@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="card">
+            <div class="header">
+                <div class="logo"></div>
+                <h1>Create your account</h1>
+                <p>
+                    Register to start using your account
+                </p>
+            </div>
+            <form class="form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="irname"
+                        name="name"
+                        placeholder="Type your name"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="iremail"
+                        name="email"
+                        placeholder="your@email.com"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="irpw"
+                        name="password"
+                        placeholder="Type your password"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="profile">You are</label>
+                    <select id="profile" name="profile" required>
+                        <option value="" disabled selected>
+                            Select an option
+                        </option>
+                        <option value="student">
+                            Student
+                        </option>
+                        <option value="scientist">
+                            Scientist
+                        </option>
+                        <option value="enthusiast">
+                            Enthusiast
+                        </option>
+                        <option value="other">
+                            Other
+                        </option>
+                    </select>
+                </div>
+                <button type="submit">
+                    Register
+                </button>
+            </form>
+            <p class="text">
+                Do you have an account?
+                <a href="login.html">Enter</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>
