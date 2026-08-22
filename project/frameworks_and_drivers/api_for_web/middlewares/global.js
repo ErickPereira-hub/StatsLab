@@ -1,3 +1,4 @@
+const cors = require("cors");
 const cookieHandler = require("cookie-parser");
 
 function loadGlobalMiddlewares(app, express) {
@@ -6,6 +7,7 @@ function loadGlobalMiddlewares(app, express) {
 
     app.use(cookieHandler()); //<--- Allows the reception of cookies
 
+    app.use(cors());
 }
 
 module.exports = { loadGlobalMiddlewares };
