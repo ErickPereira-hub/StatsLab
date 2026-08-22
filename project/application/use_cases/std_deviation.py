@@ -6,7 +6,7 @@ from math import sqrt
 class StdDeviationUseCase:
 
     @staticmethod
-    def get_std_deviation(pure_dataset: List[float | int] | List[Tuple[float | int, ...]], population: bool) -> Dict[str, float | bool]:
+    def get_std_deviation(pure_dataset: List[float | int], population: bool) -> Dict[str, float | bool]:
         dataset: DataSetEntity = DataSetEntity(pure_dataset)
         if dataset.must_have_numbers():
             avg: float = np.average(np.array(dataset.ds))
