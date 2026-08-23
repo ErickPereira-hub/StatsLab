@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatsLab - Home</title>
+    <link rel="stylesheet" href="../style/inner_style.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/contact.css">
+</head>
+<body onresize = "adjustMenu()">
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="project-name">
+                StatsLab
+            </a>
+            <button class="logout-button" type="button" onclick = "logoutUser()">
+                Logout
+            </button>
+        </div>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="menu-button" type="button" onclick = "togleBurguer()">
+                </div>
+                <div class="nav-links" id = "imenu">
+                    <div><a href="./home.html">Home</a></div>
+                    <div><a href="./simulation.html">Simulations</a></div>
+                    <div><a href="./contact.html">Contact</a></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+    <main class="contact-main">
+        <section class="contact-intro">
+            <h1>
+                Let's chat.<br>
+                Tell me what you are thinking
+            </h1>
+            <div class="contact-email">
+                <div class="email-icon"></div>
+                <a href="mailto:contact@statslab.com">
+                    contact@statslab.com
+                </a>
+            </div>
+        </section>
+        <section class="contact-form-section">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        placeholder="What is this about?"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell me what you are thinking</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Write your message here..."
+                        required
+                    ></textarea>
+                </div>
+                <button type="submit">
+                    Send message
+                </button>
+            </form>
+        </section>
+    </main>
+    <script src = "../interaction/logout/request_logout.js"></script>
+    <script src = "../interaction/burguer_menu/burguer_listener.js"></script>
+</body>
+</html>
