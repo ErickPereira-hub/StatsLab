@@ -1,5 +1,6 @@
 const cors = require("cors");
 const cookieHandler = require("cookie-parser");
+const morgan = require("morgan");
 
 function loadGlobalMiddlewares(app, express) {
 
@@ -7,7 +8,10 @@ function loadGlobalMiddlewares(app, express) {
 
     app.use(cookieHandler()); //<--- Allows the reception of cookies
 
-    app.use(cors());
+    app.use(cors()); //<--- Breaking CORS policy error in the frontend.
+
+    app.use(morgan()); //<--- Register the requests in the terminal.
+
 }
 
 module.exports = { loadGlobalMiddlewares };
