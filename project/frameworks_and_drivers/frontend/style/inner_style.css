@@ -1,0 +1,243 @@
+.site-header {
+    width: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-links > div {
+    padding: 20px;
+}
+
+.nav-links > div > a {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1000px;
+    height: 72px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-name {
+    color: var(--text);
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    text-decoration: none;
+}
+
+.logout-button {
+    height: 40px;
+    width: 100px;
+    padding: 0 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--button);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.logout-button:hover {
+    background: var(--button);
+    border-color: var(--button);
+    color: white;
+}
+
+.navbar {
+    width: 100%;
+    border-top: 1px solid #eef0f3;
+}
+
+.nav-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+.menu-button {
+    display: none;
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: transparent;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    background-image: url("../imgs/burguer.png");
+    background-position: center;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.menu-button:hover {
+    background-color: var(--button-hover);
+    background-image: url("../imgs/hover_burguer.png");
+}
+
+.main-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 28px 100px;
+}
+
+.hero {
+    max-width: 1000px;
+    margin-bottom: 85px;
+}
+
+.hero h1 {
+    margin-bottom: 22px;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    color: var(--text);
+}
+
+.hero p {
+    max-width: 1000px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+#istd_img {
+    margin-top: 20px;
+    background-image: url('../imgs/std_img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+}
+
+.project-article {
+    max-width: 1200px;
+    padding-top: 45px;
+    border-top: 1px solid var(--border);
+}
+
+.project-article h2 {
+    margin-bottom: 18px;
+    font-size: 30px;
+    line-height: 1.25;
+    letter-spacing: -0.8px;
+}
+
+.project-article p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+
+    #istd_img {
+        height: 300px;
+    }
+
+    .nav-links > div:hover {
+        background-color: var(--border);
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .header-content {
+        height: 64px;
+        padding: 0 20px;
+    }
+
+    .project-name {
+        font-size: 21px;
+    }
+
+    .navbar {
+        border-top: none;
+    }
+
+    .nav-content {
+        min-height: 56px;
+        padding: 0 20px;
+    }
+
+    .menu-button {
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-content {
+        padding: 55px 20px 80px;
+    }
+
+    .hero {
+        margin-bottom: 60px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.8px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .project-article {
+        padding-top: 35px;
+    }
+
+    .project-article h2 {
+        font-size: 26px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    #istd_img {
+        height: 200px;
+    }
+
+    .header-content {
+        padding: 0 16px;
+    }
+
+    .nav-content {
+        padding: 0 16px;
+    }
+
+    .logout-button {
+        height: 38px;
+        padding: 0 14px;
+    }
+
+    .main-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

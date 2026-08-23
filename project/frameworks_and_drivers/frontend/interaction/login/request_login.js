@@ -15,7 +15,7 @@ export function requestLogin(data) {
         
         if (statusCode === 200) {
             //Entering inside the system
-            window.location.href = "./start.html";
+            window.location.href = "./home.html";
         } else {
             //Showing bad message
             document.getElementById("ierr").innerText = "❌" + json.message;

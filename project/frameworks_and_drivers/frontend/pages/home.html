@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatsLab - Home</title>
+    <link rel="stylesheet" href="../style/inner_style.css">
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body onresize = "adjustMenu()">
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="project-name">
+                StatsLab
+            </a>
+            <button class="logout-button" type="button" onclick = "logoutUser()">
+                Logout
+            </button>
+        </div>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="menu-button" type="button" onclick = "togleBurguer()">
+                </div>
+                <div class="nav-links" id = "imenu">
+                    <div><a href="/" class="active">Home</a></div>
+                    <div><a href="/simulations">Simulations</a></div>
+                    <div><a href="/contact">Contact</a></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="hero">
+            <h1>Welcome to StatsLab</h1>
+            <p>
+                This is the ultimate interactive simulator designed to bridge the gap between complex data and actionable insight. Whether you need to upload custom datasets to uncover hidden probabilities and advanced metrics, or want to master core statistical concepts through real-time dynamic modeling, StatsLab transforms passive learning into an active, hands-on experience.
+            </p>
+            <div id = "istd_img"></div>
+        </section>
+        <article class="project-article">
+            <h2>Example</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
+            </p>
+            <h2>Example</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                Duis sagittis ipsum. Praesent mauris.
+            </p>
+            <h2>Example</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                Duis sagittis ipsum. Praesent mauris.
+            </p>
+        </article>
+    </main>
+    <script src = "../interaction/logout/request_logout.js"></script>
+    <script src = "../interaction/burguer_menu/burguer_listener.js"></script>
+</body>
+</html>

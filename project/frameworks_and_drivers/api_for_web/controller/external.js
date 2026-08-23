@@ -94,6 +94,13 @@ function externalEndpoints(app) {
         return res.status(200).json({message : "allowed", success : true});
     });
 
+    app.delete("/logout", (req, res) => {
+        
+        res.clearCookie("jwt"); //Asking to delete the cookie
+        return res.status(200).json({message: "deletion of jwt", success: true});
+
+    });
+
 }
 
 module.exports = { externalEndpoints }
