@@ -1,7 +1,6 @@
 export function postNewUser(data) {
-    const PATH = "http://127.0.0.1:3000/register";
+    const PATH = "http://127.0.0.1:3000/outside/register";
     let statusCode;
-    console.log(data);
     fetch(PATH, {
         method : "POST",
         body : JSON.stringify(data),

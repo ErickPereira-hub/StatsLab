@@ -1,12 +1,14 @@
 const { loadGlobalMiddlewares } = require("../project/frameworks_and_drivers/api_for_web/middlewares/global");
 const { externalEndpoints } = require("../project/frameworks_and_drivers/api_for_web/controller/external")
 const { generateDatabase } = require("../project/frameworks_and_drivers/databases/mysql/infra/db_automation")
+const { statsFeatures } = require("../project/frameworks_and_drivers/api_for_web/controller/stats");
 const express = require("express");
 
 const app = express();
 
 loadGlobalMiddlewares(app, express); //<--- Loading and activating the global middleawares
 externalEndpoints(app); //<--- Loading and activating Login and Registration endpoints
+statsFeatures(app);
 
 const PORT = 3000;
 app.listen(PORT, () => {

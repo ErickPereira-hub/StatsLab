@@ -8,7 +8,10 @@ function loadGlobalMiddlewares(app, express) {
 
     app.use(cookieHandler()); //<--- Allows the reception of cookies
 
-    app.use(cors()); //<--- Breaking CORS policy error in the frontend.
+    app.use(cors({
+        credentials: true,
+        origin: "http://127.0.0.1:5500"
+    })); //<--- Breaking CORS policy error in the frontend.
 
     app.use(morgan()); //<--- Register the requests in the terminal.
 

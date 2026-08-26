@@ -1,7 +1,8 @@
 export function requestLogin(data) {
-    const PATH = "http://127.0.0.1:3000/login";
+    const PATH = "http://127.0.0.1:3000/outside/login";
     let statusCode;
     fetch(PATH, {
+        credentials : "include",
         method : "POST",
         body : JSON.stringify(data),
         headers : {"Content-Type" : "application/json"}

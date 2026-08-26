@@ -1,0 +1,158 @@
+.normal-main {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 70px 28px 100px;
+}
+
+.normal-header {
+    max-width: 800px;
+    margin-bottom: 45px;
+}
+
+.normal-header h1 {
+    margin-bottom: 18px;
+    color: var(--text);
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.normal-header p {
+    max-width: 700px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.normal-card {
+    width: 100%;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow:
+        0 8px 25px rgba(15, 43, 74, 0.05);
+}
+
+.normal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.normal-input-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.normal-input-row .form-group input {
+    width: 100%;
+}
+
+.normal-form button {
+    margin-top: 5px;
+}
+
+.probability-result {
+    width: 100%;
+
+    margin-top: 35px;
+
+    padding: 38px 32px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 43, 74, 0.05);
+
+    text-align: center;
+}
+
+.result-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.probability-result h2 {
+    margin-bottom: 15px;
+
+    color: var(--button);
+
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+.probability-result p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+
+    .normal-main {
+        padding: 55px 20px 80px;
+    }
+
+    .normal-header {
+        margin-bottom: 35px;
+    }
+
+    .normal-header h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .normal-card {
+        padding: 26px 22px;
+    }
+
+    .normal-input-row {
+        grid-template-columns: 1fr;
+
+        gap: 19px;
+    }
+
+    .probability-result {
+        padding: 32px 22px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .normal-main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .normal-card {
+        padding: 24px 18px;
+    }
+
+    .probability-result {
+        padding: 28px 18px;
+    }
+}

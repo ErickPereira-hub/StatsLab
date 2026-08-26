@@ -3,14 +3,16 @@ const { pool } = require("../../databases/mysql/infra/pool");
 const bcrypt = require("bcrypt");
 const { validateBody } = require("../middlewares/check_body");
 const { UserDQL } = require("../../databases/mysql/dql/user")
-const { jwtCycle } = require("../auth/jwtauth");
+const { jwtCycle } = require("../jwt/jwt_cycle");
 
 function externalEndpoints(app) {
 
+    const BASIS = "/outside";
+
     //Register endpoint
-    app.post("/register", validateBody, async (req, res) => {
+    app.post(BASIS + "/register", validateBody, async (req, res) => {
         const JSON = req.body; //<--- Grabing JSON
-        
+
         //Capturing the fields
         const name = JSON.name;
         const email = JSON.email;
@@ -49,7 +51,7 @@ function externalEndpoints(app) {
         });
     });
 
-    app.post("/login", validateBody, async (req, res) => {
+    app.post(BASIS + "/login", validateBody, async (req, res) => {
         
         //Getting the JSON in the body
         const JSON = req.body;
@@ -94,7 +96,7 @@ function externalEndpoints(app) {
         return res.status(200).json({message : "allowed", success : true});
     });
 
-    app.delete("/logout", (req, res) => {
+    app.delete(BASIS + "/logout", (req, res) => {
         
         res.clearCookie("jwt"); //Asking to delete the cookie
         return res.status(200).json({message: "deletion of jwt", success: true});

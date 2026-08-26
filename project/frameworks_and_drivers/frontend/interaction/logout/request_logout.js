@@ -1,6 +1,6 @@
-function logoutUser() {
+function logoutUser(loginPath) {
 
-    const PATH = "http://127.0.0.1:3000/logout";
+    const PATH = "http://127.0.0.1:3000/outside/logout";
     let statusCode;
 
     fetch(PATH, {
@@ -15,7 +15,7 @@ function logoutUser() {
 
         if (statusCode === 200) {
             //Leading the user to the login page if everything went well
-            window.location.href = "./login.html";
+            window.location.href = loginPath;
         }
 
     }).catch(err => console.error(err));
