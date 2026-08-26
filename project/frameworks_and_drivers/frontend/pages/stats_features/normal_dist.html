@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../../style/inner_style.css">
         <link rel="stylesheet" href="../../style/style.css">
         <link rel="stylesheet" href="../../style/stats_features/normal_dist.css">
+        <link rel = "stylesheet" href="../../style/charts.css">
     </head>
     <body>
     <header class="site-header">
@@ -106,8 +107,12 @@
                 Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
                 Sed nisi. Nulla quis sem at nibh elementum imperdiet.
             </p>
+            <div class="gaussian-chart">
+                <canvas id="normalDistributionChart"></canvas>
+            </div>
         </section>
     </main>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src = "../../interaction/logout/request_logout.js"></script>
     <script src = "../../interaction/burguer_menu/burguer_listener.js"></script>
     <script src = "../../interaction/stats_features/normal_dist/listenner.js" type = "module"></script>

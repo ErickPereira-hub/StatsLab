@@ -4,18 +4,21 @@ function logoutUser(loginPath) {
     let statusCode;
 
     fetch(PATH, {
-        method : "DELETE"
+        method : "DELETE",
+        credentials : "include"
     }).then(res => {
 
         //Grabbing the status code
         statusCode = res.status;
         return res.json();
-    
+
     }).then(json => {
 
         if (statusCode === 200) {
+
             //Leading the user to the login page if everything went well
             window.location.href = loginPath;
+
         }
 
     }).catch(err => console.error(err));

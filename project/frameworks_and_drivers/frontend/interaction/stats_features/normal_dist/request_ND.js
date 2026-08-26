@@ -1,3 +1,5 @@
+import { displayNormalDistChart } from "../../charts/normal_dist.js";
+
 export function requestNormalDistribution(mean, stdDev, start, end) {
 
     const PATH = `http://127.0.0.1:3000/stats?stats_type=normal_dist&start=${start}&end=${end}&std_deviation=${stdDev}&avg=${mean}`;
@@ -18,6 +20,11 @@ export function requestNormalDistribution(mean, stdDev, start, end) {
             //Leading the user to the login page if everything went well
             document.getElementById("prob-result").innerText = `Probability : ${(json.probability*100).toFixed(2)}%`;
             document.getElementById("iprob-show").style = "block";
+            displayNormalDistChart(Number(mean), Number(stdDev), Number(start), Number(end));
+        }
+
+        if (statusCode === 401) {
+            window.location.href = "../login.html";
         }
 
     }).catch(err => console.error(err));
