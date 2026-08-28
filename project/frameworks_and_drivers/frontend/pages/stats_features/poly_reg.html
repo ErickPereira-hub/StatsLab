@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StatsLab - Polynomial Regression</title>
+        <link rel="stylesheet" href="../../style/inner_style.css">
+        <link rel="stylesheet" href="../../style/style.css">
+        <link rel="stylesheet" href="../../style/stats_features/reg_poly.css">
+    </head>
+    <body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="project-name">
+                StatsLab
+            </a>
+            <button class="logout-button" type="button" onclick = "logoutUser('../login.html')">
+                Logout
+            </button>
+        </div>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="menu-button" type="button" onclick = "togleBurguer()">
+                </div>
+                <div class="nav-links" id = "imenu">
+                    <div><a href="../home.html">Home</a></div>
+                    <div><a href="../simulation.html">Simulations</a></div>
+                    <div><a href="../contact.html">Contact</a></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="polynomial-main">
+    <section class="poly-header">
+        <h1>Polynomial regression</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+        </p>
+    </section>
+    <section class="polynomial-card">
+        <div class="points-section">
+            <div class="points-header">
+                <h2>Data points</h2>
+                <button
+                    class="add-point-button"
+                    onclick="addPoint()"
+                >
+                    +
+                </button>
+            </div>
+            <div class="points-container" id = "icont">
+                <div class="point-row">
+                    <div class="form-group">
+                        <label for="x1">X1</label>
+                        <input
+                            type="number"
+                            id="x1"
+                            name="x1"
+                            placeholder="X"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="y1">Y1</label>
+                        <input
+                            type="number"
+                            id="y1"
+                            name="y1"
+                            placeholder="Y"
+                            step="any"
+                            required
+                        >
+                    </div>
+                </div>
+                <div class="point-row">
+                    <div class="form-group">
+                        <label for="x2">X2</label>
+                        <input
+                            type="number"
+                            id="x2"
+                            name="x2"
+                            placeholder="X"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="y2">Y2</label>
+                        <input
+                            type="number"
+                            id="y2"
+                            name="y2"
+                            placeholder="Y"
+                            step="any"
+                            required
+                        >
+                    </div>
+                </div>
+                <div class="point-row">
+                    <div class="form-group">
+                        <label for="x3">X3</label>
+                        <input
+                            type="number"
+                            id="x3"
+                            name="x3"
+                            placeholder="X"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="y3">Y3</label>
+                        <input
+                            type="number"
+                            id="y3"
+                            name="y3"
+                            placeholder="Y"
+                            step="any"
+                            required
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="degree-section">
+            <div class="form-group">
+                <label for="degree">Polynomial degree</label>
+                <select id="degree" name="degree">
+                    <option value="1">Degree 1</option>
+                    <option value="2">Degree 2</option>
+                    <option value="3">Degree 3</option>
+                    <option value="4">Degree 4</option>
+                    <option value="5">Degree 5</option>
+                    <option value="6">Degree 6</option>
+                    <option value="7">Degree 7</option>
+                    <option value="8">Degree 8</option>
+                    <option value="9">Degree 9</option>
+                    <option value="10">Degree 10</option>
+                </select>
+            </div>
+        </div>
+        <button id = "isend" class="polynomial-submit">
+            Calculate Regression
+        </button>
+    </section>
+    <section class="polynomial-result" id = "poly-info" style = "display: none;">
+        <div class="result-content">
+            <h2>Polynomial Regression Result</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            </p>
+            <div class="polynomial-equation">
+                <span>Polynomial</span>
+                <strong id = "ipoly-repr">
+                </strong>
+            </div>
+        </div>
+        <div class="polynomial-chart">
+            <canvas id="polyRegChart"></canvas>
+        </div>
+    </section>
+    </main>
+    <script src = "../../interaction/stats_features/poly_reg/listenner.js" type = "module"></script>
+    <script src = "../../interaction/stats_features/poly_reg/add_point.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src = "../../interaction/logout/request_logout.js"></script>
+    <script src = "../../interaction/burguer_menu/burguer_listener.js"></script>
+    <script src = "../../interaction/stats_features/normal_dist/listenner.js" type = "module"></script>
+    </body>
+</html>

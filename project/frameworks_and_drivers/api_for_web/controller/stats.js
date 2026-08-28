@@ -37,6 +37,27 @@ function statsFeatures(app) {
         }
 
     });
+
+    //Endpoint that accesses normal distribution
+    app.post(BASIS, async (req, res) => {
+
+        const uid = checkAuth(req, res); //This funciton acts as a middleware that will check if the JWT of the user is ok and will return a refreshed token if necessary.
+        const statsResource = req.query.stats_type;
+        
+        if (statsResource === undefined) {
+            return res.status(422).json({
+                message: "You must define a value to stats_type in order to access a statistical resource",
+                success: false
+            });
+        }
+
+        refreshCookie(req, res); //Refreshing cookies before the response
+
+        if (statsResource === "poly_reg") {
+            return await Caller.callPolynomialRegression(req, res);
+        }
+
+    });
 }
 
 module.exports = { statsFeatures };

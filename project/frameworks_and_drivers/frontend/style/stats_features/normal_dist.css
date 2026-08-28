@@ -1,14 +1,12 @@
 .normal-main {
     width: 100%;
     max-width: 1000px;
-
     margin: 0 auto;
-
     padding: 70px 28px 100px;
 }
 
 .normal-header {
-    max-width: 800px;
+    max-width: 1200px;
     margin-bottom: 45px;
 }
 
@@ -21,7 +19,7 @@
 }
 
 .normal-header p {
-    max-width: 700px;
+    width: 100%;
     color: var(--muted);
     font-size: 16px;
     line-height: 1.8;
@@ -59,54 +57,38 @@
 
 .probability-result {
     width: 100%;
-
     margin-top: 35px;
-
     padding: 38px 32px;
-
     background: var(--surface);
-
     border: 1px solid var(--border);
     border-radius: 14px;
-
     box-shadow:
         0 8px 25px rgba(15, 43, 74, 0.05);
-
     text-align: center;
 }
 
 .result-label {
     display: block;
-
     margin-bottom: 8px;
-
     color: var(--muted);
-
     font-size: 12px;
     font-weight: 600;
-
     text-transform: uppercase;
     letter-spacing: 1.2px;
 }
 
 .probability-result h2 {
     margin-bottom: 15px;
-
     color: var(--button);
-
     font-size: clamp(30px, 5vw, 44px);
     line-height: 1.2;
-
     letter-spacing: -1px;
 }
 
 .probability-result p {
-    max-width: 650px;
-
-    margin: 0 auto;
-
+    max-width: 800px;
+    margin: auto;
     color: var(--muted);
-
     font-size: 14px;
     line-height: 1.8;
 }
@@ -131,7 +113,6 @@
 
     .normal-input-row {
         grid-template-columns: 1fr;
-
         gap: 19px;
     }
 

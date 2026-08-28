@@ -5,7 +5,7 @@ statistical feature from FastAPI to an Express.js endpoint. */
 
 class Caller {
 
-    static BASIS_URL = "http://127.0.0.1:8000/service"
+    static BASIS_URL = "http://127.0.0.1:8000/service";
 
     static async callNormalDistribution(req, res) {
 
@@ -35,6 +35,27 @@ class Caller {
         const serviceJSON = await response.json();
         
         return res.status(200).json(serviceJSON); //Delivering the information to the frontend.
+
+    }
+
+    static async callPolynomialRegression(req, res) {
+
+        const inputJSON = req.body;
+        const fullURL = Caller.BASIS_URL + "/poly_reg";
+        const response = await fetch(fullURL, {method : "POST", body : JSON.stringify(inputJSON), headers : {"Content-Type" : "application/json"}});
+        const status = response.status;
+
+        if (status !== 200) {
+
+            return res.status(status).json({
+                message: ( status >= 500 ) ? "Problem in FastAPI server" : "Can't fetch the polynomial",
+                success: false
+            });
+
+        }
+
+        const jsonRes = await response.json(); //<--- Getting the JSON from fastAPI
+        return res.status(200).json(jsonRes);
 
     }
 
