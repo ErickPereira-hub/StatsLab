@@ -37,6 +37,45 @@
     min-width: 0;
 }
 
+.point-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remove-point-button {
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--button);
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.remove-point-button:hover {
+    background: var(--button);
+    border-color: var(--button);
+    color: white;
+}
+
+div#btn-kit {
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+}
+
 .points-header {
     display: flex;
     align-items: center;

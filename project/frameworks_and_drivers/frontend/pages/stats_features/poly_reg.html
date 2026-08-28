@@ -33,22 +33,29 @@
     <main class="polynomial-main">
     <section class="poly-header">
         <h1>Polynomial regression</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-            Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+        <p style = "padding-bottom: 30px;">
+            This tool allows you to fit a polynomial curve to your data with a chosen degree. It not only calculates the best-fitting polynomial but also displays it graphically, making it easy to visualize trends and patterns in your dataset.
         </p>
     </section>
     <section class="polynomial-card">
         <div class="points-section">
             <div class="points-header">
                 <h2>Data points</h2>
-                <button
-                    class="add-point-button"
-                    onclick="addPoint()"
-                >
-                    +
-                </button>
+                <div id = "btn-kit">
+                    <button
+                        id = "irm_point"
+                        class="remove-point-button"
+                        onclick="rmPoint()"
+                    >
+                        −
+                    </button>
+                    <button
+                        class="add-point-button"
+                        onclick="addPoint()"
+                    >
+                        +
+                    </button>
+                </div>
             </div>
             <div class="points-container" id = "icont">
                 <div class="point-row">
@@ -142,6 +149,7 @@
                 </select>
             </div>
         </div>
+        <p id = "err-msg" style = "display: none; font-size: 0.9em;">❗Bad request: the X data must increase from top to bottom, all fields must be filed and the degree must be lower than the dataset.</p>
         <button id = "isend" class="polynomial-submit">
             Calculate Regression
         </button>
@@ -150,9 +158,7 @@
         <div class="result-content">
             <h2>Polynomial Regression Result</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                Here is the polynomial that best fits your data, along with its graphical representation.
             </p>
             <div class="polynomial-equation">
                 <span>Polynomial</span>
@@ -165,6 +171,7 @@
         </div>
     </section>
     </main>
+    <script src = "../../interaction/stats_features/poly_reg/rm_point.js"></script>
     <script src = "../../interaction/stats_features/poly_reg/listenner.js" type = "module"></script>
     <script src = "../../interaction/stats_features/poly_reg/add_point.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>

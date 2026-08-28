@@ -24,6 +24,7 @@ export function requestPolynomialRegression(datasetX, datasetY, degree) {
             const polyRepr = fillPolynomial(json.coefficients); //<--- Polynomial
             document.getElementById("ipoly-repr").innerText = polyRepr; //Showing the polynomial to the client side
             displayPolynomialRegression(datasetX, datasetY, json.coefficients);
+            document.getElementById("err-msg").style.display = "none";
         }
 
         if (statusCode === 401) {
@@ -31,7 +32,7 @@ export function requestPolynomialRegression(datasetX, datasetY, degree) {
         }
 
         if (statusCode === 422) {
-            console.log("Bad request");
+            document.getElementById("err-msg").style.display = "block";
         }
 
     }).catch(err => console.error(err));
