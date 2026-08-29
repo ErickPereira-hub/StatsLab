@@ -21,6 +21,7 @@ export function requestPoissonDist(start, end, mean) {
             if (statusCode === 200) {
                 document.getElementById("result-region").style.display = "block";
                 document.getElementById("pd-prob-result").innerText = `Probability: ${(100 * json.data.prob).toFixed(2)}%`;
+                document.getElementById("imsg-prob").innerText = `This represents the probability that the random discrete variable takes on values between ${start} and ${end}.`;
                 if (json.data.show) {
                     //Placing the elements in the figure
                     document.getElementById("chart-region").style.display = "block";
@@ -34,11 +35,12 @@ export function requestPoissonDist(start, end, mean) {
                     sliderEnd.value = `${end}`;
                     document.getElementById("slider-start-value").innerText = `${start}`;
                     document.getElementById("slider-end-value").innerText = `${end}`;
+                    document.getElementById("err-poisson-msg").style.display = "none";
                 }
             }
 
             if (statusCode === 422) {
-                console.log(json);
+                document.getElementById("err-poisson-msg").style.display = "block";
             }
     
             if (statusCode === 401) {

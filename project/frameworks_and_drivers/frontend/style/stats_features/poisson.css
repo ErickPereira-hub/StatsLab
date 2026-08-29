@@ -21,6 +21,26 @@
     gap: 20px;
 }
 
+.poisson-header {
+    max-width: 1200px;
+    margin-bottom: 45px;
+}
+
+.poisson-header h1 {
+    margin-bottom: 18px;
+    color: var(--text);
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.poisson-header p {
+    width: 100%;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
 .poisson-form .form-group input {
     width: 100%;
 }

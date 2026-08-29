@@ -31,12 +31,10 @@
         </nav>
     </header>
     <main class="poisson-main">
-        <section class="normal-header">
+        <section class="poisson-header">
             <h1>Poisson Distribution</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                Here you can calculate the probability of an event occurring multiple times within a given interval of time or space.
             </p>
         </section>
         <section class="poisson-card">
@@ -83,6 +81,7 @@
                         required
                     >
                 </div>
+                <p style = "display: none;" id = "err-poisson-msg">Bad request: The initial value must be less than the final value, and neither the mean nor the initial value can be negative.</p>
                 <button id = "send-req">
                     Calculate Probability
                 </button>
@@ -95,10 +94,7 @@
                 </span>
                 <h2 id = "pd-prob-result">
                 </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                    Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                <p id = "imsg-prob">
                 </p>
             </div>
             <div id = "chart-region" style = "display: none;">

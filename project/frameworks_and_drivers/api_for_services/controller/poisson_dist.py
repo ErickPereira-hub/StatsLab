@@ -4,7 +4,7 @@ from typing import Dict, List
 from project.application.utils.get_poisson import get_poisson
 
 @ROUTER_SERVICE.get("/poisson_dist")
-def poisson_dist(start: int, end: int, mean: float, res: Response) -> Dict[str, List[int | float | None] | bool | float]:
+def poisson_dist(start: int, end: int, mean: float, res: Response) -> Dict[str, List[int | float | None] | bool | float | str]:
 
     CHART_INF_LIMIT: int = 20
     CHART_SUP_LIMIT: int = 40

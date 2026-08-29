@@ -116,6 +116,8 @@ export function updateProbabilityRegion(chart, distributionData) {
     chart.data.datasets[1].data = probabilityRegion;
     chart.update();
 
+    document.getElementById("imsg-prob").innerText = `This represents the probability that the random discrete variable takes on values between ${start} and ${end}.`;
+
     //Updating the probability
     document.getElementById("pd-prob-result").innerText = `Probability: ${(100 * newProb).toFixed(2)}%`;
 }
