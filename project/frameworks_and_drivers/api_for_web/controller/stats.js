@@ -36,6 +36,10 @@ function statsFeatures(app) {
             return await Caller.callNormalDistribution(req, res);
         }
 
+        if (statsResource === "poisson_dist") {
+            return await Caller.callPoissonDistribution(req, res);
+        }
+
     });
 
     //Endpoint that accesses normal distribution

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StatsLab - Polynomial Regression</title>
+        <link rel="stylesheet" href="../../style/inner_style.css">
+        <link rel="stylesheet" href="../../style/style.css">
+        <link rel="stylesheet" href="../../style/stats_features/poisson.css">
+    </head>
+    <body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="project-name">
+                StatsLab
+            </a>
+            <button class="logout-button" type="button" onclick = "logoutUser('../login.html')">
+                Logout
+            </button>
+        </div>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="menu-button" type="button" onclick = "togleBurguer()">
+                </div>
+                <div class="nav-links" id = "imenu">
+                    <div><a href="../home.html">Home</a></div>
+                    <div><a href="../simulation.html">Simulations</a></div>
+                    <div><a href="../contact.html">Contact</a></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="poisson-main">
+        <section class="normal-header">
+            <h1>Poisson Distribution</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            </p>
+        </section>
+        <section class="poisson-card">
+            <form class="poisson-form">
+                <div class="form-group">
+                    <label for="poisson-mean">
+                        Mean for the interval
+                    </label>
+                    <input
+                        type="number"
+                        id="poisson-mean"
+                        name="mean"
+                        placeholder="Enter the mean"
+                        min="0"
+                        step="any"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="poisson-start">
+                        Initial quantity
+                    </label>
+                    <input
+                        type="number"
+                        id="poisson-start"
+                        name="start"
+                        placeholder="Enter the initial quantity"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="poisson-end">
+                        Final quantity
+                    </label>
+                    <input
+                        type="number"
+                        id="poisson-end"
+                        name="end"
+                        placeholder="Enter the final quantity"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+                <button id = "send-req">
+                    Calculate Probability
+                </button>
+            </form>
+        </section>
+        <section class="poisson-result" id = "result-region" style = "display: none;">
+            <div class="poisson-result-content">
+                <span class="result-label">
+                    Probability
+                </span>
+                <h2 id = "pd-prob-result">
+                </h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                    Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                </p>
+            </div>
+            <div id = "chart-region" style = "display: none;">
+                <div class="poisson-chart">
+                    <canvas id="poissonChart"></canvas>
+                </div>
+                <div class="poisson-slider-section">
+                    <div class="slider-header">
+                        <span>Probability interval</span>
+                        <div class="slider-values">
+                            <span>
+                                Start:
+                                <strong id="slider-start-value"></strong>
+                            </span>
+                            <span>
+                                End:
+                                <strong id="slider-end-value"></strong>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-group">
+                            <label for="poisson-slider-start">
+                                Initial value
+                            </label>
+                            <input
+                                type="range"
+                                id="poisson-slider-start"
+                                min="0"
+                            >
+                        </div>
+                        <div class="slider-group">
+                            <label for="poisson-slider-end">
+                                Final value
+                            </label>
+                            <input
+                                type="range"
+                                id="poisson-slider-end"
+                                min="0"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src = "../../interaction/stats_features/poisson_dist/listener.js" type = "module"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src = "../../interaction/charts/poisson_dist/poisson_dist.js" type = "module"></script>
+    <script src = "../../interaction/charts/poisson_dist/listeners.js" type = "module"></script>
+    <script src = "../../interaction/logout/request_logout.js"></script>
+    <script src = "../../interaction/burguer_menu/burguer_listener.js"></script>
+    </body>
+</html>

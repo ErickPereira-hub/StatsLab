@@ -42,7 +42,11 @@ class Caller {
 
         const inputJSON = req.body;
         const fullURL = Caller.BASIS_URL + "/poly_reg";
-        const response = await fetch(fullURL, {method : "POST", body : JSON.stringify(inputJSON), headers : {"Content-Type" : "application/json"}});
+        const response = await fetch(fullURL, {
+            method : "POST",
+            body : JSON.stringify(inputJSON),
+            headers : {"Content-Type" : "application/json"}
+        });
         const status = response.status;
 
         if (status !== 200) {
@@ -56,6 +60,45 @@ class Caller {
 
         const jsonRes = await response.json(); //<--- Getting the JSON from fastAPI
         return res.status(200).json(jsonRes);
+
+    }
+
+    static async callPoissonDistribution(req, res) {
+
+        const start = req.query.start;
+        const end = req.query.end;
+        const mean = req.query.mean;
+
+        const fullURL = Caller.BASIS_URL + `/poisson_dist?start=${start}&end=${end}&mean=${mean}`;
+
+        const resp = await fetch(fullURL, {method : "GET"});
+
+        const status = resp.status;
+
+        if (status >= 400 && status <= 499) {
+
+            return res.status(status).json({
+                message: "Bad request: check the query parameters",
+                success: false
+            });
+
+        }
+
+        if (status >= 500) {
+
+            return res.status(status).json({
+                message : "Problem in FastAPI",
+                success: false
+            });
+
+        }
+
+        const data = await resp.json();
+
+        return res.status(200).json({
+            success: true,
+            data: data
+        });
 
     }
 
