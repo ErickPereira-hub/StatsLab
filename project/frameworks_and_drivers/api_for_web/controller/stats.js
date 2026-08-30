@@ -61,6 +61,10 @@ function statsFeatures(app) {
             return await Caller.callPolynomialRegression(req, res);
         }
 
+        if (statsResource === "desc") {
+            return await Caller.callDescriptiveStats(req, res);
+        }
+
     });
 }
 

@@ -34,9 +34,7 @@
         <section class="normal-header">
             <h1>Descriptive Statistics</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                This is a region where you can fetch descriptive results of your dataset, including mean, median, standard deviation, and much more. It provides a clear statistical overview, helping you quickly understand the central tendencies and variability within your data.
             </p>
         </section>
         <section class="statistics-card">
@@ -61,119 +59,129 @@
                     </button>
                 </div>
             </div>
-            <div class="data-grid" id = "dgrid">
-                <div class="form-group">
-                    <label for="d1">Value 1</label>
-                    <input
-                        type="number"
-                        id="d1"
-                        name="d1"
-                        placeholder="Enter a value"
-                        step="any"
-                    >
+            <form>
+                <div class="data-grid" id = "dgrid">
+                    <div class="form-group">
+                        <label for="d1">Value 1</label>
+                        <input
+                            type="number"
+                            id="d1"
+                            name="d1"
+                            placeholder="Enter a value"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="d2">Value 2</label>
+                        <input
+                            type="number"
+                            id="d2"
+                            name="d2"
+                            placeholder="Enter a value"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="d3">Value 3</label>
+                        <input
+                            type="number"
+                            id="d3"
+                            name="d3"
+                            placeholder="Enter a value"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="d4">Value 4</label>
+                        <input
+                            type="number"
+                            id="d4"
+                            name="d4"
+                            placeholder="Enter a value"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="d5">Value 5</label>
+                        <input
+                            type="number"
+                            id="d5"
+                            name="d5"
+                            placeholder="Enter a value"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="d6">Value 6</label>
+                        <input
+                            type="number"
+                            id="d6"
+                            name="d6"
+                            placeholder="Enter a value"
+                            step="any"
+                            required
+                        >
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="d2">Value 2</label>
-                    <input
-                        type="number"
-                        id="d2"
-                        name="d2"
-                        placeholder="Enter a value"
-                        step="any"
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="d3">Value 3</label>
-                    <input
-                        type="number"
-                        id="d3"
-                        name="d3"
-                        placeholder="Enter a value"
-                        step="any"
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="d4">Value 4</label>
-                    <input
-                        type="number"
-                        id="d4"
-                        name="d4"
-                        placeholder="Enter a value"
-                        step="any"
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="d5">Value 5</label>
-                    <input
-                        type="number"
-                        id="d5"
-                        name="d5"
-                        placeholder="Enter a value"
-                        step="any"
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="d6">Value 6</label>
-                    <input
-                        type="number"
-                        id="d6"
-                        name="d6"
-                        placeholder="Enter a value"
-                        step="any"
-                    >
-                </div>
-            </div>
-            <button
-                type="submit"
-                class="statistics-submit"
-            >
-                Calculate Statistics
-            </button>
+                <p id = "err-desc" style = "display: none;">You must send at least 6 values</p>
+                <button
+                    type="submit"
+                    class="statistics-submit"
+                    id = "btn-desc"
+                >
+                    Calculate Statistics
+                </button>
+            </form>
         </section>
-        <section class="statistics-results">
+        <section class="statistics-results" id = "results-desc" style = "display: none;">
             <div class="results-header">
                 <h2>Results</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer nec odio. Praesent libero.
+                    Here are your fetched results
                 </p>
             </div>
             <div class="results-grid">
                 <div class="result-item">
                     <span>Mean</span>
-                    <strong>24.60</strong>
+                    <strong id = "mean"></strong>
                 </div>
                 <div class="result-item">
                     <span>Mode</span>
-                    <strong>18</strong>
+                    <strong id = "mode"></strong>
                 </div>
                 <div class="result-item">
                     <span>Median</span>
-                    <strong>22.50</strong>
+                    <strong id = "median"></strong>
                 </div>
                 <div class="result-item">
                     <span>Population Variance</span>
-                    <strong>42.84</strong>
+                    <strong id = "pop-var"></strong>
                 </div>
                 <div class="result-item">
                     <span>Sample Variance</span>
-                    <strong>47.60</strong>
+                    <strong id = "s-var"></strong>
                 </div>
                 <div class="result-item">
                     <span>Population Standard Deviation</span>
-                    <strong>6.54</strong>
+                    <strong id = "pop-std-dev"></strong>
                 </div>
                 <div class="result-item">
                     <span>Sample Standard Deviation</span>
-                    <strong>6.90</strong>
+                    <strong id = "s-std-dev"></strong>
                 </div>
                 <div class="result-item">
                     <span>Mean Absolute Deviation</span>
-                    <strong>5.12</strong>
+                    <strong id = "mad"></strong>
                 </div>
             </div>
         </section>
     </main>
+    <script src = "../../interaction/stats_features/descriptive/listener.js" type = "module"></script>
     <script src = "../../interaction/stats_features/descriptive/rm_btn.js"></script>
     <script src = "../../interaction/stats_features/descriptive/add_btn.js"></script>
     <script src = "../../interaction/logout/request_logout.js"></script>

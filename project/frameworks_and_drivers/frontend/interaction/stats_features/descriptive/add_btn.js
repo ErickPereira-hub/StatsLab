@@ -10,6 +10,7 @@ function addBtn() {
     newInput.id = `d${newPos}`;
     newInput.name = `d${newPos}`;
     newInput.step = "any";
+    newInput.required = true;
     newInput.placeholder = "Enter a value";
     newInput.type = "number";
     newElement.append(newLabel);

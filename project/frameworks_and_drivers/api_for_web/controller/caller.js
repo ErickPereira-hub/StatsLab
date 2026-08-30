@@ -102,6 +102,33 @@ class Caller {
 
     }
 
+    static async callDescriptiveStats(req, res) {
+
+        const inputJSON = req.body;
+        const fullURL = Caller.BASIS_URL + "/desc";
+        
+        const response = await fetch(fullURL, {
+            method : "POST",
+            body : JSON.stringify(inputJSON),
+            headers : {"Content-Type" : "application/json"}
+        });
+        
+        const status = response.status;
+
+        if (status !== 200) {
+
+            return res.status(status).json({
+                message: ( status >= 500 ) ? "Problem in FastAPI server" : "Can't fetch the descriptive data",
+                success: false
+            });
+
+        }
+
+        const jsonRes = await response.json(); //<--- Getting the Descriptive data from fastapi.
+        return res.status(200).json(jsonRes);
+
+    }
+
 }
 
 module.exports = { Caller };
