@@ -28,6 +28,11 @@ body {
     color: var(--text);
 }
 
+.project-article a {
+    text-decoration: none;
+    color: var(--text);
+}
+
 .page {
     min-height: 100vh;
     display: flex;
