@@ -18,11 +18,7 @@ export function requestNormalDistribution(mean, stdDev, start, end) {
 
         if (statusCode === 200) {
             //Leading the user to the login page if everything went well
-            const prob = (json.probability*100).toFixed(2);
-            document.getElementById("prob-result").innerText = `Probability : ${prob}%`;
-            document.getElementById("iprob-show").style = "block";
-            document.getElementById("imsg").innerText = `The probability of finding the random variable within the interval ranging from ${start} to ${end} is ${prob}%, based on the specified mean and standard deviation. This calculation reflects how likely it is for values to fall inside the chosen range, and the result is visually represented by the shaded area under the Gaussian curve.`;
-            displayNormalDistChart(Number(mean), Number(stdDev), Number(start), Number(end));
+            loadNDFrontend(mean, stdDev, start, end, json);
         }
 
         if (statusCode === 401) {
@@ -31,4 +27,12 @@ export function requestNormalDistribution(mean, stdDev, start, end) {
 
     }).catch(err => console.error(err));
 
+}
+
+const loadNDFrontend = (mean, stdDev, start, end, json) => {
+    const prob = (json.probability*100).toFixed(2);
+    document.getElementById("prob-result").innerText = `Probability : ${prob}%`;
+    document.getElementById("iprob-show").style = "block";
+    document.getElementById("imsg").innerText = `The probability of finding the random variable within the interval ranging from ${start} to ${end} is ${prob}%, based on the specified mean and standard deviation. This calculation reflects how likely it is for values to fall inside the chosen range, and the result is visually represented by the shaded area under the Gaussian curve.`;
+    displayNormalDistChart(Number(mean), Number(stdDev), Number(start), Number(end));
 }

@@ -20,13 +20,7 @@ export function requestLinearRegression(dsx, dsy) {
     }).then(json => {
 
         if (statusCode === 200) {
-            document.getElementById("poly-info").style.display = "block";
-            const polyRepr = fillPolynomial(json.coefficients); //<--- Polynomial
-            document.getElementById("ipoly-repr").innerText = polyRepr; //Showing the polynomial to the client side
-            displayPolynomialRegression(dsx, dsy, json.coefficients);
-            document.getElementById("err-msg").style.display = "none";
-            document.getElementById("corr").innerText = `r = ${json.correlation.toFixed(4)} (${(json.correlation < 0.5 && -0.5 < json.correlation) ? 'weak correlation' : 'strong correlation'})`
-            console.log(json);
+            loadLinearFrontend(dsx, dsy, json);
         }
 
         if (statusCode === 401) {
@@ -40,3 +34,14 @@ export function requestLinearRegression(dsx, dsy) {
     }).catch(err => console.error(err));
 
 }
+
+const loadLinearFrontend = (dsx, dsy, json) => {
+
+    document.getElementById("poly-info").style.display = "block";
+    const polyRepr = fillPolynomial(json.coefficients); //<--- Polynomial
+    document.getElementById("ipoly-repr").innerText = polyRepr; //Showing the polynomial to the client side
+    displayPolynomialRegression(dsx, dsy, json.coefficients);
+    document.getElementById("err-msg").style.display = "none";
+    document.getElementById("corr").innerText = `r = ${json.correlation.toFixed(4)} (${(json.correlation < 0.5 && -0.5 < json.correlation) ? 'weak correlation' : 'strong correlation'})`;
+
+} 

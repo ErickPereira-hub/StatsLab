@@ -20,11 +20,7 @@ export function requestPolynomialRegression(datasetX, datasetY, degree) {
     }).then(json => {
 
         if (statusCode === 200) {
-            document.getElementById("poly-info").style.display = "block";
-            const polyRepr = fillPolynomial(json.coefficients); //<--- Polynomial
-            document.getElementById("ipoly-repr").innerText = polyRepr; //Showing the polynomial to the client side
-            displayPolynomialRegression(datasetX, datasetY, json.coefficients);
-            document.getElementById("err-msg").style.display = "none";
+            loadPRResults(datasetX, datasetY, json);
         }
 
         if (statusCode === 401) {
@@ -38,3 +34,11 @@ export function requestPolynomialRegression(datasetX, datasetY, degree) {
     }).catch(err => console.error(err));
 
 }
+
+const loadPRResults = (dsx, dsy, json) => {
+    document.getElementById("poly-info").style.display = "block";
+    const polyRepr = fillPolynomial(json.coefficients); //<--- Polynomial
+    document.getElementById("ipoly-repr").innerText = polyRepr; //Showing the polynomial to the client side
+    displayPolynomialRegression(dsx, dsy, json.coefficients);
+    document.getElementById("err-msg").style.display = "none";
+};
