@@ -1,11 +1,11 @@
-.poisson-main {
+.disc-main {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     padding: 70px 28px 100px;
 }
 
-.poisson-card {
+.disc-card {
     width: 100%;
     padding: 32px;
     background: var(--surface);
@@ -15,18 +15,18 @@
         0 8px 25px rgba(15, 43, 74, 0.05);
 }
 
-.poisson-form {
+.disc-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.poisson-header {
+.disc-header {
     max-width: 1200px;
     margin-bottom: 45px;
 }
 
-.poisson-header h1 {
+.disc-header h1 {
     margin-bottom: 18px;
     color: var(--text);
     font-size: clamp(40px, 6vw, 64px);
@@ -34,18 +34,18 @@
     letter-spacing: -2px;
 }
 
-.poisson-header p {
+.disc-header p {
     width: 100%;
     color: var(--muted);
     font-size: 16px;
     line-height: 1.8;
 }
 
-.poisson-form .form-group input {
+.disc-form .form-group input {
     width: 100%;
 }
 
-.poisson-result {
+.disc-result {
     width: 100%;
     margin-top: 35px;
     padding: 38px 32px;
@@ -56,11 +56,11 @@
         0 8px 25px rgba(15, 43, 74, 0.05);
 }
 
-.poisson-result-content {
+.disc-result-content {
     text-align: center;
 }
 
-.poisson-result-content h2 {
+.disc-result-content h2 {
     margin-bottom: 15px;
     color: var(--button);
     font-size: clamp(30px, 5vw, 44px);
@@ -68,20 +68,20 @@
     letter-spacing: -1px;
 }
 
-.poisson-result-content p {
+.disc-result-content p {
     max-width: 700px;
     margin: 0 auto;
     color: var(--muted);
     font-size: 14px;
     line-height: 1.8;
 }
-.poisson-chart {
+.disc-chart {
     width: 100%;
     height: 380px;
     margin-top: 35px;
 }
 
-.poisson-slider-section {
+.disc-slider-section {
     margin-top: 35px;
     padding-top: 30px;
     border-top: 1px solid var(--border);
@@ -165,19 +165,19 @@
 
 @media (max-width: 700px) {
 
-    .poisson-main {
+    .disc-main {
         padding: 55px 20px 80px;
     }
 
-    .poisson-card {
+    .disc-card {
         padding: 26px 22px;
     }
 
-    .poisson-result {
+    .disc-result {
         padding: 32px 22px;
     }
 
-    .poisson-chart {
+    .disc-chart {
         height: 320px;
     }
 
@@ -196,16 +196,16 @@
 
 @media (max-width: 380px) {
 
-    .poisson-main {
+    .disc-main {
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    .poisson-card {
+    .disc-card {
         padding: 24px 18px;
     }
 
-    .poisson-result {
+    .disc-result {
         padding: 28px 18px;
     }
 

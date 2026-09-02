@@ -2,3 +2,4 @@ import project.frameworks_and_drivers.api_for_services.controller.normal_dist
 import project.frameworks_and_drivers.api_for_services.controller.poly_reg
 import project.frameworks_and_drivers.api_for_services.controller.poisson_dist
 import project.frameworks_and_drivers.api_for_services.controller.descriptive
+import project.frameworks_and_drivers.api_for_services.controller.binomial_dist

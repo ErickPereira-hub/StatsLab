@@ -129,6 +129,28 @@ class Caller {
 
     }
 
+    static async callBinomialDistribution(req, res) {
+
+        const minSuc = req.query.min_suc;
+        const maxSuc = req.query.max_suc;
+        const prob = req.query.prob;
+        const tries = req.query.tries;
+        const fullURL = Caller.BASIS_URL + `/binomial_dist?min_suc=${minSuc}&max_suc=${maxSuc}&prob=${prob}&tries=${tries}`;
+        const resp = await fetch(fullURL, {method : "GET"});
+        const status = resp.status;
+
+        if (status !== 200) {
+            return res.status(status).json({
+                success: false,
+                message: "Problem during request to the service API"
+            });
+        }
+
+        const respJSON = await resp.json();
+        return res.status(200).json(respJSON);
+
+    }
+
 }
 
 module.exports = { Caller };

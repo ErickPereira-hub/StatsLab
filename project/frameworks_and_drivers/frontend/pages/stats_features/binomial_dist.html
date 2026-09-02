@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>StatsLab - Poisson Distribution</title>
+        <title>StatsLab - Binomial Distribution</title>
         <link rel="stylesheet" href="../../style/inner_style.css">
         <link rel="stylesheet" href="../../style/style.css">
         <link rel="stylesheet" href="../../style/stats_features/disc.css">
@@ -32,35 +32,36 @@
     </header>
     <main class="disc-main">
         <section class="disc-header">
-            <h1>Poisson Distribution</h1>
+            <h1>Binomial Distribution</h1>
             <p>
-                Here you can calculate the probability of an event occurring multiple times within a given interval of time or space.
+                Here you can calculate the probability of an event occurring multiple times within a given range, based on a specified number of attempts and the probability of success.
             </p>
         </section>
         <section class="disc-card">
             <form class="disc-form">
                 <div class="form-group">
-                    <label for="poisson-mean">
-                        Mean for the interval
+                    <label for="bin-prob">
+                        Probability of occurrence for the event
                     </label>
                     <input
                         type="number"
-                        id="poisson-mean"
-                        name="mean"
-                        placeholder="Enter the mean"
+                        id="bin-prob"
+                        name="bin-prob"
+                        placeholder="Enter the probability"
                         min="0"
+                        max="1"
                         step="any"
                         required
                     >
                 </div>
                 <div class="form-group">
-                    <label for="poisson-start">
-                        Initial quantity
+                    <label for="bin-start">
+                        Initial quantity of successes
                     </label>
                     <input
                         type="number"
-                        id="poisson-start"
-                        name="start"
+                        id="bin-start"
+                        name="bin-start"
                         placeholder="Enter the initial quantity"
                         min="0"
                         step="1"
@@ -68,20 +69,34 @@
                     >
                 </div>
                 <div class="form-group">
-                    <label for="poisson-end">
-                        Final quantity
+                    <label for="bin-end">
+                        Final quantity of successes
                     </label>
                     <input
                         type="number"
-                        id="poisson-end"
-                        name="end"
+                        id="bin-end"
+                        name="bin-end"
                         placeholder="Enter the final quantity"
                         min="0"
                         step="1"
                         required
                     >
                 </div>
-                <p style = "display: none;" id = "err-poisson-msg">Bad request: The initial value must be less than the final value, and neither the mean nor the initial value can be negative.</p>
+                <div class="form-group">
+                    <label for="bin-try">
+                        Number of tries
+                    </label>
+                    <input
+                        type="number"
+                        id="bin-try"
+                        name="bin-try"
+                        placeholder="Enter the quantity"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+                <p style = "display: none;" id = "err-bin-msg">Bad request: the initial number of success can't be greater than the final number of success. Furthermore, the number of tries can't be lower than the maximum number of success</p>
                 <button id = "send-req">
                     Calculate Probability
                 </button>
@@ -92,14 +107,14 @@
                 <span class="result-label">
                     Probability
                 </span>
-                <h2 id = "pd-prob-result">
+                <h2 id = "bd-prob-result">
                 </h2>
                 <p id = "imsg-prob">
                 </p>
             </div>
-            <div id = "chart-region" style = "display: none;">
+            <div id = "chart-region">
                 <div class="disc-chart">
-                    <canvas id="poissonChart"></canvas>
+                    <canvas id="binChart"></canvas>
                 </div>
                 <div class="disc-slider-section">
                     <div class="slider-header">
@@ -117,22 +132,22 @@
                     </div>
                     <div class="slider-container">
                         <div class="slider-group">
-                            <label for="poisson-slider-start">
+                            <label for="bin-slider-start">
                                 Initial value
                             </label>
                             <input
                                 type="range"
-                                id="poisson-slider-start"
+                                id="bin-slider-start"
                                 min="0"
                             >
                         </div>
                         <div class="slider-group">
-                            <label for="poisson-slider-end">
+                            <label for="bin-slider-end">
                                 Final value
                             </label>
                             <input
                                 type="range"
-                                id="poisson-slider-end"
+                                id="bin-slider-end"
                                 min="0"
                             >
                         </div>
@@ -141,10 +156,8 @@
             </div>
         </section>
     </main>
-    <script src = "../../interaction/stats_features/poisson_dist/listener.js" type = "module"></script>
+    <script src = "../../interaction/stats_features/binomial_dist/listener.js" type = "module"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src = "../../interaction/charts/poisson_dist/poisson_dist.js" type = "module"></script>
-    <script src = "../../interaction/charts/poisson_dist/listeners.js" type = "module"></script>
     <script src = "../../interaction/logout/request_logout.js"></script>
     <script src = "../../interaction/burguer_menu/burguer_listener.js"></script>
     </body>

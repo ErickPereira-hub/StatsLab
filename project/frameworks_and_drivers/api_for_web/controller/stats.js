@@ -40,6 +40,10 @@ function statsFeatures(app) {
             return await Caller.callPoissonDistribution(req, res);
         }
 
+        if (statsResource === "binomial_dist") {
+            return await Caller.callBinomialDistribution(req, res);
+        }
+
     });
 
     //Endpoint that accesses normal distribution
