@@ -151,6 +151,27 @@ class Caller {
 
     }
 
-}
+    static async callLinRegression(req, res) {
+
+        const data = req.body;
+        const fullURL = Caller.BASIS_URL + "/lin_reg";
+        const response = await fetch(fullURL, {
+            method : "POST",
+            body : JSON.stringify(data),
+            headers : {"Content-Type" : "application/json"}
+        });
+        if (response.status !== 200) {
+
+            return res.status(response.status).json({
+                message: "Can't fetch the linear equation",
+                success: false
+            });
+        }
+
+        const coeffsJson = await response.json();
+        return res.status(200).json(coeffsJson);
+        
+        }
+    }
 
 module.exports = { Caller };

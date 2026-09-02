@@ -69,6 +69,10 @@ function statsFeatures(app) {
             return await Caller.callDescriptiveStats(req, res);
         }
 
+        if (statsResource === "lin_reg") {
+            return await Caller.callLinRegression(req, res);
+        }
+
     });
 }
 

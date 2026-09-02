@@ -16,3 +16,9 @@ class DataSetEntity:
 
     def __getitem__(self, item: int) -> float | int | Tuple[float | int, ...]:
         return self.ds[item]
+
+    @classmethod
+    def same_size(cls, ds1, ds2) -> bool:
+        if len(ds1) != len(ds2):
+            return False #<--- The datasets have distinct sizes
+        return True #<--- Same size

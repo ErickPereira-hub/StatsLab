@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StatsLab - Linear Regression</title>
+        <link rel="stylesheet" href="../../style/inner_style.css">
+        <link rel="stylesheet" href="../../style/style.css">
+        <link rel="stylesheet" href="../../style/stats_features/reg_poly.css">
+    </head>
+    <body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="project-name">
+                StatsLab
+            </a>
+            <button class="logout-button" type="button" onclick = "logoutUser('../login.html')">
+                Logout
+            </button>
+        </div>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="menu-button" type="button" onclick = "togleBurguer()">
+                </div>
+                <div class="nav-links" id = "imenu">
+                    <div><a href="../home.html">Home</a></div>
+                    <div><a href="../simulation.html">Simulations</a></div>
+                    <div><a href="../contact.html">Contact</a></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="polynomial-main">
+    <section class="poly-header">
+        <h1>Linear regression</h1>
+        <p style = "padding-bottom: 30px;">
+            This tool allows you to find the best linear curve that fits your data. It not only calculates the best-fitting line but also displays it graphically, making it easy to visualize trends and patterns in your dataset.
+        </p>
+    </section>
+    <section class="linear-card">
+        <div class="points-section" style = "padding-bottom: 20px;">
+            <div class="points-header">
+                <h2>Data points</h2>
+                <div id = "btn-kit">
+                    <button
+                        id = "irm_point"
+                        class="remove-point-button"
+                        onclick="rmPoint()"
+                    >
+                        −
+                    </button>
+                    <button
+                        class="add-point-button"
+                        onclick="addPoint()"
+                    >
+                        +
+                    </button>
+                </div>
+            </div>
+            <div class="points-container" id = "icont">
+                <div class="point-row">
+                    <div class="form-group">
+                        <label for="x1">X1</label>
+                        <input
+                            type="number"
+                            id="x1"
+                            name="x1"
+                            placeholder="X"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="y1">Y1</label>
+                        <input
+                            type="number"
+                            id="y1"
+                            name="y1"
+                            placeholder="Y"
+                            step="any"
+                            required
+                        >
+                    </div>
+                </div>
+                <div class="point-row">
+                    <div class="form-group">
+                        <label for="x2">X2</label>
+                        <input
+                            type="number"
+                            id="x2"
+                            name="x2"
+                            placeholder="X"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="y2">Y2</label>
+                        <input
+                            type="number"
+                            id="y2"
+                            name="y2"
+                            placeholder="Y"
+                            step="any"
+                            required
+                        >
+                    </div>
+                </div>
+                <div class="point-row">
+                    <div class="form-group">
+                        <label for="x3">X3</label>
+                        <input
+                            type="number"
+                            id="x3"
+                            name="x3"
+                            placeholder="X"
+                            step="any"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="y3">Y3</label>
+                        <input
+                            type="number"
+                            id="y3"
+                            name="y3"
+                            placeholder="Y"
+                            step="any"
+                            required
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p id = "err-msg" style = "display: none; font-size: 0.9em;">❗Bad request: the X data must increase from top to bottom and all fields must be filed.</p>
+        <button id = "isend" class="polynomial-submit">
+            Calculate Regression
+        </button>
+    </section>
+    <section class="polynomial-result" id = "poly-info" style = "display: none;">
+        <div class="result-content">
+            <h2>Linear Regression Result</h2>
+            <p>
+                Here is the line that best fits your data, along with its graphical representation.
+            </p>
+            <div class="polynomial-equation">
+                <span>Linear equation</span>
+                <strong id = "ipoly-repr">
+                </strong>
+                <span style = "padding-top: 20px;">Correlation</span>
+                <strong id = "corr">
+                </strong>
+            </div>
+        </div>
+        <div class="polynomial-chart">
+            <canvas id="polyRegChart"></canvas>
+        </div>
+    </section>
+    </main>
+    <script src = "../../interaction/stats_features/poly_reg/rm_point.js"></script>
+    <script src = "../../interaction/stats_features/lin_reg/listenner.js" type = "module"></script>
+    <script src = "../../interaction/stats_features/poly_reg/add_point.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src = "../../interaction/logout/request_logout.js"></script>
+    <script src = "../../interaction/burguer_menu/burguer_listener.js"></script>
+    </body>
+</html>

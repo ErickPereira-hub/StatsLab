@@ -20,6 +20,16 @@
     padding: 70px 28px 100px;
 }
 
+.linear-card {
+    width: 100%;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow:
+        0 8px 25px rgba(15, 43, 74, 0.05);
+}
+
 .polynomial-card {
     width: 100%;
     display: grid;
