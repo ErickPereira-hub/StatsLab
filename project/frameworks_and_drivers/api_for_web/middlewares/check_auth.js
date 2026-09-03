@@ -1,6 +1,6 @@
 const { JWT_SINGLETON } = require("../jwt/jwt_singleton");
 
-const checkAuth = (req, res) => {
+const checkAuth = (req, res, next) => {
 
     const token = req.cookies.jwt;
 
@@ -24,9 +24,10 @@ const checkAuth = (req, res) => {
 
     //Grabbing the id of the user (may be useful for operations in the database concerning this user)
     id = payload.id;
+    res.locals.uid = id;
 
     //Here, the user is authorized to access the endpoint
-    return id;
+    return next();
 
 }
 

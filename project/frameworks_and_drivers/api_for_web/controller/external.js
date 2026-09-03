@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const { validateBody } = require("../middlewares/check_body");
 const { UserDQL } = require("../../databases/mysql/dql/user")
 const { jwtCycle } = require("../jwt/jwt_cycle");
+const { extRateLimiterMiddleware } = require("../middlewares/ext_rate_limiter_middleware.js");
 
 function externalEndpoints(app) {
 
@@ -51,7 +52,7 @@ function externalEndpoints(app) {
         });
     });
 
-    app.post(BASIS + "/login", validateBody, async (req, res) => {
+    app.post(BASIS + "/login", validateBody, extRateLimiterMiddleware, async (req, res) => {
         
         //Getting the JSON in the body
         const JSON = req.body;

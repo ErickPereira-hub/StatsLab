@@ -1,6 +1,7 @@
 const { Caller } = require("./caller");
 const { checkAuth } = require("../middlewares/check_auth");
 const { refreshCookie } = require("../middlewares/refresh_cookie");
+const {innerRateLimiterMiddleware } = require("../middlewares/inner_rate_limiter_middleware");
 
 function statsFeatures(app) {
 
@@ -17,9 +18,7 @@ function statsFeatures(app) {
     const BASIS = "/stats";
 
     //Endpoint that accesses normal distribution
-    app.get(BASIS, async (req, res) => {
-
-        const uid = checkAuth(req, res); //This funciton acts as a middleware that will check if the JWT of the user is ok and will return a refreshed token if necessary.
+    app.get(BASIS, checkAuth, innerRateLimiterMiddleware, async (req, res) => {
 
         const statsResource = req.query.stats_type;
         
@@ -47,9 +46,8 @@ function statsFeatures(app) {
     });
 
     //Endpoint that accesses normal distribution
-    app.post(BASIS, async (req, res) => {
+    app.post(BASIS, checkAuth, innerRateLimiterMiddleware, async (req, res) => {
 
-        const uid = checkAuth(req, res); //This funciton acts as a middleware that will check if the JWT of the user is ok and will return a refreshed token if necessary.
         const statsResource = req.query.stats_type;
         
         if (statsResource === undefined) {
