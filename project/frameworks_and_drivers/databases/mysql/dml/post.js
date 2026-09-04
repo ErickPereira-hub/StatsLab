@@ -9,6 +9,13 @@ class Post {
     
     }
 
+    static async postContactMessage(pool, subject, message, uid) {
+        await pool.execute(`
+        INSERT INTO contact_message (subject, message, uid) VALUES
+        (?, ?, ?)
+        `, [subject, message, uid]);
+    }
+
 }
 
 module.exports = { Post }

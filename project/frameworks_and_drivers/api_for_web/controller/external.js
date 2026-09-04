@@ -4,7 +4,10 @@ const bcrypt = require("bcrypt");
 const { validateBody } = require("../middlewares/check_body");
 const { UserDQL } = require("../../databases/mysql/dql/user")
 const { jwtCycle } = require("../jwt/jwt_cycle");
-const { extRateLimiterMiddleware } = require("../middlewares/ext_rate_limiter_middleware.js");
+const { extRateLimiterMiddleware } = require("../middlewares/ext_rate_limiter_middleware");
+const { checkAuth } = require("../middlewares/check_auth");
+const { InnerRateLimiter } = require("../../databases/redis/rate_limit/inner_rate_limiter");
+const { ExternalRateLimiter } = require("../../databases/redis/rate_limit/external_rate_limiter");
 
 function externalEndpoints(app) {
 
@@ -97,9 +100,21 @@ function externalEndpoints(app) {
         return res.status(200).json({message : "allowed", success : true});
     });
 
-    app.delete(BASIS + "/logout", (req, res) => {
+    app.delete(BASIS + "/logout", checkAuth, async (req, res) => {
         
-        res.clearCookie("jwt"); //Asking to delete the cookie
+        //Querying the email through the ID
+        const dql = new UserDQL(pool);
+        const email = await dql.getEmailById(res.locals.uid);
+        
+        //Deleting the key-value that stores relation between the email of the user and numbers of tries during Login.
+        const extRateLimiter = new ExternalRateLimiter(email);
+        await extRateLimiter.del();
+        
+        //Deleting the queue
+        const innerRateLimiter = new InnerRateLimiter(res.locals.uid);
+        await innerRateLimiter.del() //<--- Deleting the queue of the user
+        
+        res.clearCookie("jwt"); //<---Asking to delete the cookie
         return res.status(200).json({message: "deletion of jwt", success: true});
 
     });

@@ -1,10 +1,8 @@
 const {redisCnx} = require("../infra/cnx.js");
-const {RateLimiter} = require("./rate_limiter.js");
 
-class ExternalRateLimiter extends RateLimiter {
+class ExternalRateLimiter {
 
     constructor(email) {
-        super();
         this.__key = `ERL-${email}`;
     }
 
@@ -24,6 +22,14 @@ class ExternalRateLimiter extends RateLimiter {
         await cnx.incr(this.__key);
         return true;
     
+    }
+
+    async del() {
+        const cnx = await redisCnx();
+        const isThere = await cnx.exists(this.__key);
+        if (isThere === 1) {
+            await cnx.del(this.__key);
+        }
     }
 
 }

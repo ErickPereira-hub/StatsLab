@@ -8,8 +8,8 @@ const extRateLimiterMiddleware = async (req, res, next) => {
     //If not approved, return 429
     if (!signal) {
         return res.status(429).json({
-            message: "Too many request"
-        })
+            message: "Too many request. Try again later!"
+        });
     }
 
     return next();

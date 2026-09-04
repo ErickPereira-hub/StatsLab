@@ -2,7 +2,7 @@ const {InnerRateLimiter} = require("../../databases/redis/rate_limit/inner_rate_
 
 const innerRateLimiterMiddleware = async (req, res, next) => {
 
-    const rateLimiter = new InnerRateLimiter(`IRL-${res.locals.uid}`);
+    const rateLimiter = new InnerRateLimiter(res.locals.uid);
     const signal = await rateLimiter.acceptRequest();
 
     //Checking if there are too many request per second

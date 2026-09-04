@@ -1,11 +1,9 @@
 const {redisCnx} = require("../infra/cnx.js");
-const {RateLimiter} = require("./rate_limiter.js");
 
-class InnerRateLimiter extends RateLimiter {
+class InnerRateLimiter {
 
     constructor(lKey) {
-        super();
-        this.__lKey = lKey;
+        this.__lKey = `IRL-${lKey}`;
         this.__validate();
     }
 
@@ -43,6 +41,14 @@ class InnerRateLimiter extends RateLimiter {
         }
         return true; //The number of request is in the correct range, so we return True, which means that the user can go to the next middleware or endpoint.
 
+    }
+
+    async del() {
+        const cnx = await redisCnx();
+        const isThere = await cnx.exists(this.__lKey);
+        if (isThere === 1) {
+            await cnx.del(this.__lKey);
+        }
     }
 
 }

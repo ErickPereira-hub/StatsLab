@@ -19,6 +19,11 @@ class UserDQL {
         }
     }
 
+    async getEmailById(uid) {
+        const [rows, fields] = await this.pool.execute("SELECT email FROM users WHERE id = ?", [uid]);
+        return rows[0].email;
+    }
+
 }
 
 module.exports = { UserDQL }

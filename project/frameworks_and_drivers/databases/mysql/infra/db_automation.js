@@ -35,6 +35,17 @@ async function generateDatabase() {
         )
     `);
 
+    await scnx.execute(`
+        CREATE TABLE IF NOT EXISTS contact_message (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            subject VARCHAR(50) NOT NULL,
+            message VARCHAR(3000) NOT NULL,
+            posted_at DATETIME DEFAULT NOW(),
+            uid INT NOT NULL,
+            FOREIGN KEY (uid) REFERENCES users(id)
+        )
+    `);
+
     //Closing the strong connection
     await scnx.end();
     console.log("Database check has been done");
