@@ -31,7 +31,8 @@ services:
     build:
       context: .
       dockerfile: ./web_api/dockerfile
-    container_name: api_node
+    deploy:
+      replicas: 2
     networks:
       - api_redis
       - api_mysql
