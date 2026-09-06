@@ -3,7 +3,7 @@ import { addBinEvents } from "../../charts/binomial_dist/listeners.js";
 
 export function requestBinomialDistribution(minSuc, maxSuc, prob, tries) {
 
-    const PATH = `http://nginx:80/api/stats?stats_type=binomial_dist&min_suc=${minSuc}&max_suc=${maxSuc}&prob=${prob}&tries=${tries}`;
+    const PATH = `http://localhost:80/api/stats?stats_type=binomial_dist&min_suc=${minSuc}&max_suc=${maxSuc}&prob=${prob}&tries=${tries}`;
     let statusCode;
 
     fetch(PATH, {

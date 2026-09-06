@@ -1,5 +1,5 @@
 export function requestLogin(data) {
-    const PATH = "http://nginx:80/outside/login";
+    const PATH = "http://localhost:80/api/outside/login";
     let statusCode;
     fetch(PATH, {
         credentials : "include",
@@ -11,7 +11,7 @@ export function requestLogin(data) {
         //Grabbing the status code
         statusCode = res.status;
         return res.json();
-    
+
     }).then(json => {
         
         if (statusCode === 200) {

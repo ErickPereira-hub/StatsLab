@@ -15,5 +15,5 @@ contact(app);
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`API server is running on port ${PORT}`);
-    generateDatabase(); //<--- Creating the database and tables if they do not exist
+    setTimeout(generateDatabase, 15000); //<--- Creating the database and tables if they do not exist
 }); //<--- Putting the server to work

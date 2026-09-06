@@ -1,6 +1,6 @@
 export function requestDesc(bodyJson) {
 
-    const PATH = `http://nginx:80/api/stats?stats_type=desc`;
+    const PATH = `http://localhost:80/api/stats?stats_type=desc`;
     let statusCode;
     
     fetch(PATH, {

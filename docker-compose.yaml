@@ -1,10 +1,10 @@
 services:
 
-  redis_db:
+  redis:
     image: redis
     container_name: redis
     networks:
-      -api_redis
+      - api_redis
 
   mysql:
     image: mysql:8.4
@@ -48,8 +48,12 @@ services:
       context: .
       dockerfile: ./nginx/dockerfile
     container_name: nginx
+    depends_on:
+      - api_node
     networks:
       - proxy_net
+    ports:
+      - '80:80'
 
 networks:
   api_redis:

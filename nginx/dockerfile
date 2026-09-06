@@ -1,11 +1,8 @@
 #Pushing one of the most stable and light-weight versions
 FROM nginx:alpine
 
-#Removing standard configuration
-RUN rm /etc/nginx/conf.d/default.conf
-
 #Copying NGINX configuration to container
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
 #Copying the frontend to the NGINX container
 COPY ./project/frameworks_and_drivers/frontend /usr/share/nginx/html
