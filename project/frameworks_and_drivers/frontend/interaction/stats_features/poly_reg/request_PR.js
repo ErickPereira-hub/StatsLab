@@ -3,7 +3,7 @@ import { displayPolynomialRegression } from "../../charts/poly_reg.js";
 
 export function requestPolynomialRegression(datasetX, datasetY, degree) {
 
-    const PATH = `http://127.0.0.1:3000/stats?stats_type=poly_reg`;
+    const PATH = `http://nginx:80/api/stats?stats_type=poly_reg`;
     let statusCode;
 
     fetch(PATH, {

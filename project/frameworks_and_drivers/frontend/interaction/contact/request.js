@@ -1,5 +1,5 @@
 export function requestContact(data) {
-    const PATH = "http://127.0.0.1:3000/contact";
+    const PATH = "http://nginx:80/api/contact";
     let statusCode;
     fetch(PATH, {
         credentials : "include",

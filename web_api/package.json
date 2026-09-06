@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "node --env-file=.env run_web_api/api.js"
+    "dev": "node --env-file=.env ./web_api/api.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

@@ -1,0 +1,65 @@
+services:
+
+  redis_db:
+    image: redis
+    container_name: redis
+    networks:
+      -api_redis
+
+  mysql:
+    image: mysql:8.4
+    container_name: mysql
+    ports:
+      - '3306:3306'
+    networks:
+      - api_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_vol:/var/lib/mysql
+  
+  api_fastapi:
+    build:
+      context: .
+      dockerfile: ./service_api/dockerfile
+    container_name: api_fastapi
+    networks:
+      - apis_net
+    restart: no
+  
+  api_node:
+    build:
+      context: .
+      dockerfile: ./web_api/dockerfile
+    container_name: api_node
+    networks:
+      - api_redis
+      - api_mysql
+      - apis_net
+      - proxy_net
+    depends_on:
+      - mysql
+      - redis
+      - api_fastapi
+    restart: no
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/dockerfile
+    container_name: nginx
+    networks:
+      - proxy_net
+
+networks:
+  api_redis:
+    driver: bridge
+  api_mysql:
+    driver: bridge
+  apis_net:
+    driver: bridge
+  proxy_net:
+    driver: bridge
+
+volumes:
+  mysql_vol:

@@ -5,7 +5,7 @@ statistical feature from FastAPI to an Express.js endpoint. */
 
 class Caller {
 
-    static BASIS_URL = "http://127.0.0.1:8000/service";
+    static BASIS_URL = "http://api_fastapi:8000/service";
 
     static async callNormalDistribution(req, res) {
 

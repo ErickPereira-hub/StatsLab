@@ -4,7 +4,7 @@ import { addEvents } from "../../charts/poisson_dist/listeners.js";
 
 export function requestPoissonDist(start, end, mean) {
 
-    const PATH = `http://127.0.0.1:3000/stats?stats_type=poisson_dist&start=${start}&end=${end}&mean=${mean}`;
+    const PATH = `http://nginx:80/api/stats?stats_type=poisson_dist&start=${start}&end=${end}&mean=${mean}`;
         let statusCode;
     
         fetch(PATH, {

@@ -9,7 +9,7 @@ async function redisCnx() {
     }
 
     client = createClient({
-        url : "redis://localhost:6379"
+        url : "redis://redis_db:6379"
     });
         
     await client.connect() //<--- Stabilishing the connection

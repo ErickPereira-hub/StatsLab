@@ -1,5 +1,5 @@
 export function requestLogin(data) {
-    const PATH = "http://127.0.0.1:3000/outside/login";
+    const PATH = "http://nginx:80/outside/login";
     let statusCode;
     fetch(PATH, {
         credentials : "include",
@@ -16,7 +16,7 @@ export function requestLogin(data) {
         
         if (statusCode === 200) {
             //Entering inside the system
-            window.location.href = "./home.html";
+            window.location.href = "./pages/home.html";
         } else {
             //Showing bad message
             document.getElementById("ierr").innerText = "❌" + json.message;

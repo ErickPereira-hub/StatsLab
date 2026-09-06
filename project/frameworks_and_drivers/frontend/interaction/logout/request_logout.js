@@ -1,6 +1,6 @@
 function logoutUser(loginPath) {
 
-    const PATH = "http://127.0.0.1:3000/outside/logout";
+    const PATH = "http://nginx:80/api/outside/logout";
     let statusCode;
 
     fetch(PATH, {

@@ -1,0 +1,14 @@
+FROM python:3.13-slim
+
+WORKDIR /service
+
+COPY ./service_api/requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
+
+COPY ./project/frameworks_and_drivers/api_for_services ./project/frameworks_and_drivers/api_for_services
+COPY ./project/domain ./project/domain
+COPY ./project/application ./project/application
+COPY ./service_api/api.py ./service_api/api.py
+
+CMD ["fastapi", "run", "./service_api/api.py"]

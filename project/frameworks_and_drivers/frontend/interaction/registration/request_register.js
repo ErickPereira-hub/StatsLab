@@ -1,5 +1,5 @@
 export function postNewUser(data) {
-    const PATH = "http://127.0.0.1:3000/outside/register";
+    const PATH = "http://nginx:80/api/outside/register";
     let statusCode;
     fetch(PATH, {
         method : "POST",

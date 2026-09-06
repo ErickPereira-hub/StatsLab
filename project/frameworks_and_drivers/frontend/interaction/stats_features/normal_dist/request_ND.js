@@ -2,7 +2,7 @@ import { displayNormalDistChart } from "../../charts/normal_dist.js";
 
 export function requestNormalDistribution(mean, stdDev, start, end) {
 
-    const PATH = `http://127.0.0.1:3000/stats?stats_type=normal_dist&start=${start}&end=${end}&std_deviation=${stdDev}&avg=${mean}`;
+    const PATH = `http://nginx:80/api/stats?stats_type=normal_dist&start=${start}&end=${end}&std_deviation=${stdDev}&avg=${mean}`;
     let statusCode;
 
     fetch(PATH, {

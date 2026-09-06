@@ -3,7 +3,7 @@ const db = require("mysql2/promise");
 async function generateDatabase() {
 
     const wcnx = await db.createConnection({
-        host : "localhost",
+        host : "mysql",
         user : "root",
         password : process.env.MYSQL_PASSWORD
     });
@@ -16,7 +16,7 @@ async function generateDatabase() {
     
     //Creating a stronger connection
     const scnx = await db.createConnection({
-        host : "localhost",
+        host : "mysql",
         user : "root",
         password : process.env.MYSQL_PASSWORD,
         database : process.env.DATABASE_NAME
