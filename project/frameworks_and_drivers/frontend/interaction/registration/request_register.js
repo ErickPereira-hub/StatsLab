@@ -15,7 +15,7 @@ export function postNewUser(data) {
         
         if (statusCode === 201) {
             //Leading the user to the login page if everything went well
-            window.location.href = "./login.html";
+            window.location.href = "../index.html";
         } else {
             //Showing a message for the case of an error.
             document.getElementById("ierr").innerText = "⚠️" + json.message;

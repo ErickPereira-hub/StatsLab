@@ -98,9 +98,9 @@ The relationship between the containers is represented as follows:
 
 ## Screenshots
 
-Screenshot of the login page:
+Screenshot of the register page:
 
-![](./imgs/login.png)
+![](./imgs/register.png)
 
 Screenshot of the simulation page
 
@@ -110,20 +110,26 @@ Screenshot of the simulation page
 
 Screenshot of the Poisson Distribution page
 
-![](./imgs/disc2.png)
+![](./imgs/pd.png)
 
-![](./imgs/disc.png)
+![](./imgs/pd2.png)
 
 Screenshot of the normal distribution page
 
-![](./imgs/nd2.png)
+![](./imgs/n.png)
 
-![](./imgs/nd.png)
+![](./imgs/n2.png)
 
 Screenshot of the polynomial regression page
 
-![](./imgs/poly_reg.png)
+![](./imgs/pr.png)
 
-![](./imgs/poly_reg2.png)
+![](./imgs/pr2.png)
 
 These are just some of the features.
+
+Screenshot of the APIs backlogs.
+
+![](./imgs/logs.png)
+
+This image shows the load balance with Round Robin working
