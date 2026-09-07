@@ -92,6 +92,10 @@ Docker distributes the application into 5 main containers
 
 **Scalability with Nginx and Docker**: The configuration between Nginx and Docker enables "load balancing" across two Express.js API containers. The requests are distributed using the Round Robin algorithm, ensuring even allocation and improved scalability.
 
+The relationship between the containers is represented as follows:
+
+![](./imgs/docker.png)
+
 ## Screenshots
 
 Screenshot of the login page:
