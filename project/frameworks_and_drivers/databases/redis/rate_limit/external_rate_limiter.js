@@ -14,7 +14,6 @@ class ExternalRateLimiter {
         if (isThere === 0) {
             await cnx.set(this.__key, "0", {EX: Number(process.env.TTL_LOGIN_CONTAINER_IN_SEC)});
         }
-        console.log(await cnx.get(this.__key));
         if (Number(await cnx.get(this.__key)) >= Number(process.env.MAX_CAPACITY_OF_LOGIN_CONTAINER_PER_HOUR)) {
             return false;
         }
