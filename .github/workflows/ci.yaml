@@ -1,0 +1,65 @@
+name: CI pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Running test throughout Python in Docker + Nginx environment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Accessing github source code
+        uses: actions/checkout@v4
+
+      - name: Inserting the .env file
+        run: |
+          cat <<EOF > .env
+          MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
+          POOL_LIMIT=${{ secrets.POOL_LIMIT }}
+          CONNECTION_TTL_IN_MS=${{ secrets.CONNECTION_TTL_IN_MS }}
+          DATABASE_NAME=${{ secrets.DATABASE_NAME }}
+          BCRYPT_SALT=${{ secrets.BCRYPT_SALT }}
+          JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }}
+          JWT_TTL=${{ secrets.JWT_TTL }}
+          JWT_MAX_REFRESH_TIME_WINDOW=${{ secrets.JWT_MAX_REFRESH_TIME_WINDOW }}
+          COOKIE_TTL_IN_MS=${{ secrets.COOKIE_TTL_IN_MS }}
+          MAX_SIZE_OF_QUEUE=${{ secrets.MAX_SIZE_OF_QUEUE }}
+          MAX_REQ_PER_WINDOW_TIME=${{ secrets.MAX_REQ_PER_WINDOW_TIME }}
+          TTL_OF_QUEUE_IN_SEC=${{ secrets.TTL_OF_QUEUE_IN_SEC }}
+          WINDOW_TIME_IN_MS=${{ secrets.WINDOW_TIME_IN_MS }}
+          TTL_LOGIN_CONTAINER_IN_SEC=${{ secrets.TTL_LOGIN_CONTAINER_IN_SEC }}
+          MAX_CAPACITY_OF_LOGIN_CONTAINER_PER_HOUR=${{ secrets.MAX_CAPACITY_OF_LOGIN_CONTAINER_PER_HOUR }}
+          EOF
+
+      - name: Setting Python 3 environment that lives out of Docker
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+          cache-dependency-path: 'service_api/requirements.txt'
+      
+      - name: Installing python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f service_api/requirements.txt ]; then 
+            pip install -r service_api/requirements.txt
+          fi
+          pip install pytest requests
+      
+      - name: Building images and running containers
+        run: docker compose up -d --build
+      
+      - name: Healthcheck over Nginx with Timeout of 30 seconds
+        run: |
+          timeout 30s bash -c 'until curl -s http://localhost:80 > /dev/null; do sleep 1; done'
+
+      - name: Calling the test scripts
+        run: pytest -s -v
+      
+      - name: Closing containers and volume
+        if: always()
+        run: docker compose down -v
