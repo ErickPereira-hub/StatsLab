@@ -39,4 +39,4 @@ def test_bin():
     }]
     PRECISION: float = 0.001
     for data in DATA:
-        assert abs(get_bin(data["suc"], data["tries"], data["prob"]) - data["exp"]) > PRECISION
+        assert abs(get_bin(data["suc"], data["tries"], data["prob"]) - data["exp"]) < PRECISION
