@@ -57,7 +57,7 @@ jobs:
           timeout 30s bash -c 'until curl -s http://localhost:80 > /dev/null; do sleep 1; done'
 
       - name: Calling the test scripts
-        run: pytest -s -v
+        run: pytest -v
       
       - name: Closing containers and volume
         if: always()
