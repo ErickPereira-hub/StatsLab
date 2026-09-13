@@ -48,7 +48,6 @@ jobs:
           if [ -f service_api/requirements.txt ]; then 
             pip install -r service_api/requirements.txt
           fi
-          pip install pytest requests
       
       - name: Building images and running containers
         run: docker compose up -d --build
